@@ -23,5 +23,42 @@
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0"
+  },
+  "config": {
+    "forge": {
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "my-electron-app"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ],
+      "publishers": [ {
+        "name": "@electron-forge/publisher-github",
+        "config": {
+          "repository": {
+            "owner": "it-wuye",
+            "name": "it-wuye"
+          },
+          "prerelease": false,
+          "draft": true
+        }
+      }]
+    }
   }
 }
